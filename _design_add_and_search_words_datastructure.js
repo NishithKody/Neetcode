@@ -25,29 +25,21 @@ class WordDictionary {
     search(word){
 
         let dfs = (node, j) =>{
-            console.log('dfs start -------')
             if(j==word.length ){
-                console.log('len check',word)
-                console.log(node.wordEnd)
                 return node.wordEnd;
             }
 
             let char = word[j]
             if(char==='.'){
-                console.log('check',node.children)
-                for(let child of node.children){
-                    console.log('the child',child)
-                    if(dfs(child, j+1)){
+                for(let child of Object.keys(node.children)){
+                    if(dfs(node.children[child], j+1)){
                         return true
                     }
                 }
-                console.log('return false from dot check', word,node,j)
                 return false
             }
             else{
-                console.log('In normal flow',node,j)
                 if(!node.children[char]){
-                    console.log('return false from normal check', word,node,j)
                      return false
                 }
                    
