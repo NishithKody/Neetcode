@@ -23,3 +23,6 @@ var wordBreak = function(s, wordDict) {
     return dp[s.length]
     
 };
+
+/// Here dp.fill(false) is very expensive we can optimize by - return dp[s.length] ?  dp[s.length] : false;
+
